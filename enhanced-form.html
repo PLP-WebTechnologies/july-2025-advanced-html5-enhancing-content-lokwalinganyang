@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Content & Forms Mastery</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .content-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .media-item {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        audio, video {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .full-width {
+            grid-column: span 2;
+        }
+        
+        fieldset {
+            padding: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        button {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        input:invalid {
+            border-color: var(--accent);
+        }
+        
+        input:valid {
+            border-color: var(--secondary);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--accent);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML5 Content & Forms Mastery</h1>
+        <p>Advanced HTML5 elements and form validation techniques</p>
+    </header>
+
+    <section id="content-section">
+        <h2>Content Elements Demonstration</h2>
+        
+        <div class="content-section">
+            <div class="content-item">
+                <h3>Ordered List: Web Development Steps</h3>
+                <ol>
+                    <li>Planning and Requirements</li>
+                    <li>Design and Prototyping</li>
+                    <li>Content Creation</li>
+                    <li>Coding and Development</li>
+                    <li>Testing and Debugging</li>
+                    <li>Deployment and Maintenance</li>
+                </ol>
+            </div>
+            
+            <div class="content-item">
+                <h3>Unordered List: Frontend Technologies</h3>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js</li>
+                    <li>Vue.js</li>
+                    <li>Angular</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="content-item">
+            <h3>Table: Programming Language Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Language</th>
+                        <th>Type</th>
+                        <th>Learning Curve</th>
+                        <th>Popularity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python</td>
+                        <td>Interpreted</td>
+                        <td>Easy</td>
+                        <td>Very High</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Interpreted</td>
+                        <td>Moderate</td>
+                        <td>Very High</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>Compiled</td>
+                        <td>Moderate</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>C++</td>
+                        <td>Compiled</td>
+                        <td>Steep</td>
+                        <td>High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="media-container">
+            <div class="media-item">
+                <h3>Image Element</h3>
+                <img src="https://via.placeholder.com/600x400/3498db/ffffff?text=HTML5+Image" alt="HTML5 Image Placeholder">
+                <p>An example of the HTML5 image element with alt text for accessibility.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3>Audio Element</h3>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p>HTML5 audio element with controls for play, pause, and volume.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3>Video Element</h3>
+                <video controls poster="https://via.placeholder.com/600x400/e74c3c/ffffff?text=Video+Placeholder">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+                <p>HTML5 video element with controls and poster image.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="form-section">
+        <h2>Advanced HTML5 Form</h2>
+        <p>This form demonstrates various HTML5 input types and validation features.</p>
+        
+        <form id="user-form" novalidate>
+            <fieldset class="full-width">
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="name" class="required">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required minlength="3">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" id="website" name="website" placeholder="https://example.com">
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Account Details</legend>
+                
+                <div class="form-group">
+                    <label for="username" class="required">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required minlength="4" maxlength="20">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="required">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a strong password" required minlength="8">
+                </div>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Additional Information</legend>
+                
+                <div class="form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="13" max="120" placeholder="Enter your age">
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="usa">United States</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="australia">Australia</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="favcolor">Favorite Color</label>
+                    <input type="color" id="favcolor" name="favcolor" value="#3498db">
+                </div>
+            </fieldset>
+            
+            <fieldset class="full-width">
+                <legend>Preferences</legend>
+                
+                <div class="form-group">
+                    <label>Subscribe to:</label>
+                    <div>
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        <label for="newsletter">Newsletter</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="notifications" name="notifications">
+                        <label for="notifications">Notifications</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Experience Level:</label>
+                    <div>
+                        <input type="radio" id="beginner" name="experience" value="beginner">
+                        <label for="beginner">Beginner</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="intermediate" name="experience" value="intermediate" checked>
+                        <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="advanced" name="experience" value="advanced">
+                        <label for="advanced">Advanced</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="avatar">Profile Picture</label>
+                    <input type="file" id="avatar" name="avatar" accept="image/*">
+                </div>
+                
+                <div class="form-group">
+                    <label for="range">Skill Level (0-100):</label>
+                    <input type="range" id="range" name="range" min="0" max="100" value="50">
+                    <output for="range" id="range-value">50</output>
+                </div>
+            </fieldset>
+            
+            <fieldset class="full-width">
+                <legend>Additional Details</legend>
+                
+                <div class="form-group">
+                    <label for="bio">Biography</label>
+                    <textarea id="bio" name="bio" placeholder="Tell us about yourself" rows="4"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="search" id="search" name="search" placeholder="Search...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="readonly">Readonly Field (Example)</label>
+                    <input type="text" id="readonly" name="readonly" value="This value cannot be changed" readonly>
+                </div>
+            </fieldset>
+            
+            <div class="form-group full-width" style="text-align: center;">
+                <button type="submit">Submit Form</button>
+                <button type="reset">Reset Form</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>HTML5 Content & Forms Assignment &copy; 2023</p>
+        <p>This page demonstrates advanced HTML5 elements and form validation techniques.</p>
+    </footer>
+
+    <script>
+        // Update range value display
+        const rangeSlider = document.getElementById('range');
+        const rangeValue = document.getElementById('range-value');
+        
+        rangeSlider.addEventListener('input', function() {
+            rangeValue.textContent = this.value;
+        });
+        
+        // Form validation feedback
+        const form = document.getElementById('user-form');
+        
+        form.addEventListener('submit', function(event) {
+            if (!this.checkValidity()) {
+                event.preventDefault();
+                alert('Please fill out all required fields correctly.');
+            } else {
+                alert('Form submitted successfully! (This is a demonstration - no data was sent)');
+                event.preventDefault(); // Prevent actual form submission for demo purposes
+            }
+        });
+    </script>
+</body>
+</html>
